@@ -1,7 +1,5 @@
 #pragma once
 #include "Element.h"
-#include "Sand.h"
-#include "Water.h"
 
 class Manager
 {
@@ -9,7 +7,7 @@ public:
 	int width;
 	int height;
 
-	std::map<std::string, Element*> elements;
+	std::map<std::string, Element> elements;
 
 	sf::Uint8* canvas;
 private:

@@ -1,5 +1,7 @@
 #include "Water.h"
 
+#include "Manager.h"
+
 int Water::default_color[4] = { 0, 105, 148, 255 };
 
 Water::Water(Manager& manager) : Element(manager)

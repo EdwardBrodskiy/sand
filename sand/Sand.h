@@ -1,11 +1,12 @@
 #pragma once
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <list>
 #include "Element.h"
-#include "Manager.h"
 
+class Manager;
 
-class Sand: public Element{
+class Sand: public Element
+{
 public:
 	static int default_color[4];
 	Sand(Manager& manager);

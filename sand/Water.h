@@ -1,8 +1,7 @@
 #pragma once
 #include "Element.h"
 
-
-
+class Manager;
 class Water : public Element
 {
 public:

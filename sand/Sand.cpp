@@ -1,6 +1,8 @@
 #include "Sand.h"
 #include "Water.h"
 
+#include "Manager.h"
+
 int Sand::default_color[4] = { 239, 221, 111, 255 };
 
 Sand::Sand(Manager& manager) : Element(manager)

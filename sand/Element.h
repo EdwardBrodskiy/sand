@@ -1,7 +1,8 @@
 #pragma once
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <list>
-#include "Manager.h"
+
+class Manager;
 
 
 class Element {
