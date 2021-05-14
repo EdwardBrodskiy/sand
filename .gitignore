@@ -88,6 +88,10 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
+# Files built by Make
+*.o
+main
+
 # Chutzpah Test files
 _Chutzpah*
 
@@ -338,3 +342,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
