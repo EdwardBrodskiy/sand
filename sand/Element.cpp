@@ -1,5 +1,7 @@
 #include "Element.h"
 
+#include "Manager.h"
+
 int Element::empty[4] = { 0, 0, 0, 0 };
 
 int Element::default_color[4] = { 255, 255, 255, 255 };
