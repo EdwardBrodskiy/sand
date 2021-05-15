@@ -35,17 +35,10 @@ void Element::permute_all()
 void Element::move(sf::Vector2i start, sf::Vector2i end)
 {
 	int index_at_end = manager.vector_to_int(end);
-	try {
-		Element* other_element = manager.who_is(index_at_end);
-		other_element->add(start);
-	}
-	catch(NotKnownElementException e){
-		draw(manager.vector_to_int(start), Element::empty);
-	}
+	int index_at_start = manager.vector_to_int(start);
 	
-
-	
-	add(end);
+	draw(index_at_end, manager.get_color_at(index_at_start));
+	draw(index_at_start, Element::empty);
 }
 
 bool Element::is_me(int index)

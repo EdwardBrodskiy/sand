@@ -16,7 +16,7 @@ void Sand::permute_all()
 {
 	for (auto& pos : points) {
 		auto new_pos = this->next_pos(pos);
-		points.pop_back();
+		pos = new_pos;
 	}
 }
 
@@ -28,8 +28,7 @@ sf::Vector2i Sand::next_pos(sf::Vector2i pos)
 	int x_temp = new_pos.x;
 	for (int i = 0; i < 3; i++) {
 		new_pos.x = x_temp + x_shifts[i];
-		if (manager.is_color(manager.vector_to_int(new_pos), empty) || 
-			manager.is_color(manager.vector_to_int(new_pos), Water::default_color)) {
+		if (manager.is_color(manager.vector_to_int(new_pos), empty)) {
 			move(pos, new_pos);
 			return new_pos;
 		}
