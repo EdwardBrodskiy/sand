@@ -129,10 +129,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Element.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Sand.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Elelement.cpp" />
     <ClCompile Include="Water.cpp" />
   </ItemGroup>
   <ItemGroup>

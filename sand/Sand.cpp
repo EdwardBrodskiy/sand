@@ -16,7 +16,7 @@ void Sand::permute_all()
 {
 	for (auto& pos : points) {
 		auto new_pos = this->next_pos(pos);
-		pos = new_pos;
+		points.pop_back();
 	}
 }
 

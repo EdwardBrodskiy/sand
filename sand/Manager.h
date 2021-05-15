@@ -1,13 +1,19 @@
 #pragma once
 #include "Element.h"
 
+struct NotKnownElementException : public std::exception {
+	const char* what() const throw () {
+		return "Not known Element";
+	}
+};
+
 class Manager
 {
 public:
 	int width;
 	int height;
 
-	std::map<std::string, Element> elements;
+	std::map<std::string, Element*> elements;
 
 	sf::Uint8* canvas;
 private:
@@ -24,6 +30,6 @@ public:
 
 	int* get_color_at(int index);
 
-	Element who_is(int index);
+	Element* who_is(int index);
 };
 

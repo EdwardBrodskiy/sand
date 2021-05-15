@@ -5,14 +5,14 @@
 #include <vector>
 #include "Manager.h"
 
-int height = 1080;
-int width = 1920;
+int height = 720;
+int width = 1280;
 
 int stroke = 20;
 
 int main() {
 
-	sf::RenderWindow window(sf::VideoMode(width, height), "Noise", sf::Style::Fullscreen);
+	sf::RenderWindow window(sf::VideoMode(width, height), "Noise", sf::Style::Default);
 
 	// Object used to put the image on screen
 	sf::Texture texture;
@@ -34,7 +34,7 @@ int main() {
 	for (int x = 0; x < width; x++) {
 		for (int y = 0; y < height; y++) {
 			if (y == 0 || x == 0 || y == height - 1 || x == width - 1) {
-				//manager.base.add(sf::Vector2i(x, y));
+				manager.elements.find("base")->second->add(sf::Vector2i(x, y));
 			}
 			
 		}
@@ -58,7 +58,7 @@ int main() {
 			
 			for (int x = mouse_pos.x - stroke; x < mouse_pos.x + stroke; x++) {
 				for (int y = mouse_pos.y - stroke; y < mouse_pos.y + stroke; y++) {
-					//manager.sand.add(sf::Vector2i(x, y));
+					manager.elements.find("sand")->second->add(sf::Vector2i(x, y));
 				}
 			}
 			;
@@ -69,7 +69,7 @@ int main() {
 
 			for (int x = mouse_pos.x - stroke; x < mouse_pos.x + stroke; x++) {
 				for (int y = mouse_pos.y - stroke; y < mouse_pos.y + stroke; y++) {
-					//manager.water.add(sf::Vector2i(x, y));
+					manager.elements.find("water")->second->add(sf::Vector2i(x, y));
 				}
 			}
 			;

@@ -3,11 +3,7 @@
 #include "Sand.h"
 #include "Water.h"
 
-struct NotKnownElementException : public std::exception {
-	const char* what() const throw () {
-		return "Not known Element";
-	}
-};
+
 
 Manager::Manager(int width, int height, sf::Uint8* canvas)
 {
@@ -15,15 +11,15 @@ Manager::Manager(int width, int height, sf::Uint8* canvas)
 	this->width = width;
 	this->height = height;
 
-	elements.insert(std::make_pair("base",  Element(*this)));
-	elements.insert(std::make_pair("sand",  Sand(*this)));
-	elements.insert(std::make_pair("water", Water(*this)));
+	elements.insert(std::make_pair("base", new Element(*this)));
+	elements.insert(std::make_pair("sand", new Sand(*this)));
+	elements.insert(std::make_pair("water", new Water(*this)));
 }
 
 void Manager::permute_all()
 {
-	elements.find("sand")->second.permute_all();
-	elements.find("water")->second.permute_all();
+	((Sand*)(elements.find("sand")->second))->permute_all();
+	((Water*)(elements.find("water")->second))->permute_all();
 }
 
 int Manager::vector_to_int(sf::Vector2i pos)
@@ -41,7 +37,7 @@ int* Manager::get_color_at(int index)
 	return color;
 }
 
-Element Manager::who_is(int index)
+Element* Manager::who_is(int index)
 {
 	if (is_color(index, Element::default_color)) {
 		return elements.find("base")->second;
